@@ -14,7 +14,7 @@ namespace AccountsFormsApp
 {
     public partial class Form1 : Form
     {
-
+        // Creates the ability to use the account services file
         IAccountServices acctServices = new AccountService();
 
         public Form1()
@@ -22,21 +22,29 @@ namespace AccountsFormsApp
             InitializeComponent();
         }
 
+        // Adds a new account to the list only if the account name is not
+        // null or empty. Called when the user clicks add account
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string acctName = newAcctTxt.Text;
-            currentAcctsList.Items.Add(acctName);
+            if (!string.IsNullOrWhiteSpace(newAcctTxt.Text))
+            {
+                string acctName = newAcctTxt.Text;
+                currentAcctsList.Items.Add(acctName);
 
-            acctServices.CreateAccount(acctName, AccountType.Silver);
+                acctServices.CreateAccount(acctName, AccountType.Silver);
 
-            newAcctTxt.ResetText();
+                newAcctTxt.ResetText();
+            }
         }
 
+        // Changes the balace text when the user selected an account from the list
         private void currentAcctsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updateBalanceLabel();
+            updateBalanceText();
         }
 
+        // Enables the user to make a deposit into their account. Called when the 
+        // deposit button is clicked. Updates the balance to reflect the change. 
         private void depositBtn_Click(object sender, EventArgs e)
         {
             string selectedAcct = currentAcctsList.SelectedItem.ToString();
@@ -45,7 +53,7 @@ namespace AccountsFormsApp
             acctServices.Deposit(selectedAcct, depositAmount);
 
             depositTxt.ResetText();
-            updateBalanceLabel();
+            updateBalanceText();
         }
 
         //private void withdrawalBtn_Click(object sender, EventArgs e)
@@ -56,10 +64,11 @@ namespace AccountsFormsApp
         //    acctServices.Withdrawal(selectedAcct, withdrawalAmount);
 
         //    withdrawalTxt.ResetText();
-        //    updateBalanceLabel();
+        //    updateBalanceText();
         //}
 
-        private void updateBalanceLabel()
+        // updates the amount displayed balance text box
+        private void updateBalanceText()
         {
             string selectedAcct = currentAcctsList.SelectedItem.ToString();
             decimal bal = acctServices.GetAccountBalance(selectedAcct);
