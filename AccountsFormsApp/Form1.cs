@@ -28,6 +28,43 @@ namespace AccountsFormsApp
             currentAcctsList.Items.Add(acctName);
 
             acctServices.CreateAccount(acctName, AccountType.Silver);
+
+            newAcctTxt.ResetText();
+        }
+
+        private void currentAcctsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateBalanceLabel();
+        }
+
+        private void depositBtn_Click(object sender, EventArgs e)
+        {
+            string selectedAcct = currentAcctsList.SelectedItem.ToString();
+            decimal depositAmount = decimal.Parse(depositTxt.Text);
+
+            acctServices.Deposit(selectedAcct, depositAmount);
+
+            depositTxt.ResetText();
+            updateBalanceLabel();
+        }
+
+        private void withdrawalBtn_Click(object sender, EventArgs e)
+        {
+            string selectedAcct = currentAcctsList.SelectedItem.ToString();
+            decimal withdrawalAmount = decimal.Parse(withdrawalTxt.Text);
+
+            acctServices.Withdrawal(selectedAcct, withdrawalAmount);
+
+            withdrawalTxt.ResetText();
+            updateBalanceLabel();
+        }
+
+        private void updateBalanceLabel()
+        {
+            string selectedAcct = currentAcctsList.SelectedItem.ToString();
+            decimal bal = acctServices.GetAccountBalance(selectedAcct);
+
+            balanceTxt.Text = bal.ToString();
         }
     }
 }

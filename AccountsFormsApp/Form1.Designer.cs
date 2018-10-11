@@ -72,7 +72,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(240, 145);
+            this.addBtn.Location = new System.Drawing.Point(240, 142);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(162, 47);
             this.addBtn.TabIndex = 3;
@@ -97,6 +97,7 @@
             this.currentAcctsList.Name = "currentAcctsList";
             this.currentAcctsList.Size = new System.Drawing.Size(355, 154);
             this.currentAcctsList.TabIndex = 5;
+            this.currentAcctsList.SelectedIndexChanged += new System.EventHandler(this.currentAcctsList_SelectedIndexChanged);
             // 
             // balanceLbl
             // 
@@ -141,25 +142,27 @@
             // 
             this.depositBtn.Location = new System.Drawing.Point(640, 261);
             this.depositBtn.Name = "depositBtn";
-            this.depositBtn.Size = new System.Drawing.Size(134, 42);
+            this.depositBtn.Size = new System.Drawing.Size(150, 42);
             this.depositBtn.TabIndex = 11;
             this.depositBtn.Text = "Deposit";
             this.depositBtn.UseVisualStyleBackColor = true;
+            this.depositBtn.Click += new System.EventHandler(this.depositBtn_Click);
             // 
             // withdrawalBtn
             // 
             this.withdrawalBtn.Location = new System.Drawing.Point(640, 312);
             this.withdrawalBtn.Name = "withdrawalBtn";
-            this.withdrawalBtn.Size = new System.Drawing.Size(134, 46);
+            this.withdrawalBtn.Size = new System.Drawing.Size(150, 46);
             this.withdrawalBtn.TabIndex = 12;
             this.withdrawalBtn.Text = "Withdrawal";
             this.withdrawalBtn.UseVisualStyleBackColor = true;
+            this.withdrawalBtn.Click += new System.EventHandler(this.withdrawalBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 450);
+            this.ClientSize = new System.Drawing.Size(827, 450);
             this.Controls.Add(this.withdrawalBtn);
             this.Controls.Add(this.depositBtn);
             this.Controls.Add(this.withdrawalTxt);
