@@ -48,16 +48,16 @@ namespace AccountsFormsApp
             updateBalanceLabel();
         }
 
-        private void withdrawalBtn_Click(object sender, EventArgs e)
-        {
-            string selectedAcct = currentAcctsList.SelectedItem.ToString();
-            decimal withdrawalAmount = decimal.Parse(withdrawalTxt.Text);
+        //private void withdrawalBtn_Click(object sender, EventArgs e)
+        //{
+        //    string selectedAcct = currentAcctsList.SelectedItem.ToString();
+        //    decimal withdrawalAmount = decimal.Parse(withdrawalTxt.Text);
 
-            acctServices.Withdrawal(selectedAcct, withdrawalAmount);
+        //    acctServices.Withdrawal(selectedAcct, withdrawalAmount);
 
-            withdrawalTxt.ResetText();
-            updateBalanceLabel();
-        }
+        //    withdrawalTxt.ResetText();
+        //    updateBalanceLabel();
+        //}
 
         private void updateBalanceLabel()
         {

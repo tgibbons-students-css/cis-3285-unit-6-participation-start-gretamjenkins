@@ -112,6 +112,7 @@
             // 
             this.balanceTxt.Location = new System.Drawing.Point(662, 84);
             this.balanceTxt.Name = "balanceTxt";
+            this.balanceTxt.ReadOnly = true;
             this.balanceTxt.Size = new System.Drawing.Size(112, 31);
             this.balanceTxt.TabIndex = 7;
             // 
