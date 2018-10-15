@@ -56,16 +56,16 @@ namespace AccountsFormsApp
             updateBalanceText();
         }
 
-        //private void withdrawalBtn_Click(object sender, EventArgs e)
-        //{
-        //    string selectedAcct = currentAcctsList.SelectedItem.ToString();
-        //    decimal withdrawalAmount = decimal.Parse(withdrawalTxt.Text);
+        private void withdrawalBtn_Click(object sender, EventArgs e)
+        {
+            string selectedAcct = currentAcctsList.SelectedItem.ToString();
+            decimal withdrawalAmount = decimal.Parse(withdrawalTxt.Text);
 
-        //    acctServices.Withdrawal(selectedAcct, withdrawalAmount);
+            acctServices.Withdrawal(selectedAcct, withdrawalAmount);
 
-        //    withdrawalTxt.ResetText();
-        //    updateBalanceText();
-        //}
+            withdrawalTxt.ResetText();
+            updateBalanceText();
+        }
 
         // updates the amount displayed balance text box
         private void updateBalanceText()

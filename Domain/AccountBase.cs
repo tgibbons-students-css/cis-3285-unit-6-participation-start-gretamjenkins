@@ -40,7 +40,10 @@ namespace Domain
 
         public void AddTransaction(decimal amount)
         {
-            RewardPoints += CalculateRewardPoints(amount);
+            // Calculate the rewards points only if the transaction amount is positive. Then update the balance
+            if (amount > 0) { 
+                RewardPoints += CalculateRewardPoints(amount);
+            }
             Balance += amount;
         }
 

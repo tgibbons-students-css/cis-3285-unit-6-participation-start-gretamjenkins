@@ -157,7 +157,7 @@
             this.withdrawalBtn.TabIndex = 12;
             this.withdrawalBtn.Text = "Withdrawal";
             this.withdrawalBtn.UseVisualStyleBackColor = true;
-            // this.withdrawalBtn.Click += new System.EventHandler(this.withdrawalBtn_Click);
+            this.withdrawalBtn.Click += new System.EventHandler(this.withdrawalBtn_Click);
             // 
             // Form1
             // 
